@@ -15,7 +15,7 @@
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "aem-deploy.yaml", kubeconfigId: "k8-cluster-config")
+          kubernetesDeploy(configs: "aem-deploy.yaml", kubeconfigId: "k8")
         }
       }
     }
