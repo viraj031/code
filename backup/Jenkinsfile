@@ -16,7 +16,7 @@ pipeline {
     withKubeConfig([credentialsId: 'mykubeconfig']) {
         sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
         sh 'chmod u+x ./kubectl'  
-        sh './sudo kubectl cp -n jenkins jenkins-794699f9bc-str6n:/tmp/backup/*.zip /home/sam/jenkins-bkp/.'
+        sh './kubectl cp -n jenkins jenkins-794699f9bc-str6n:/tmp/backup/*.zip /home/sam/jenkins-bkp/.'
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
             }
     }
