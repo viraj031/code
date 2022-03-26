@@ -1,0 +1,26 @@
+pipeline {
+
+  agent any
+
+  stages {
+
+    stage('Checkout Source') {
+      steps {
+        git url:'https://github.com/alian2000/code.git', branch:'master'
+        echo "${nameSpace}"
+      }
+    }
+    
+    stage('List pods') {
+      steps {    
+    withKubeConfig([credentialsId: 'mykubeconfig']) {
+        sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
+        sh 'chmod u+x ./kubectl'  
+        sh './kubectl get pods -n ${nameSpace}'
+        echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+            }
+    }
+
+  }
+  }
+}
