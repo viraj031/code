@@ -18,7 +18,7 @@ pipeline {
         sh 'chmod u+x ./kubectl'  
         sh './kubectl get pods -n ${nameSpace}'
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-        writeFile file: 'test.txt', text: 'hello this is me'
+        writeFile file: '/home/test.txt', text: 'hello this is me'
             }
     }
 
