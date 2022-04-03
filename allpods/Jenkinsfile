@@ -16,13 +16,22 @@ pipeline {
     withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8access', namespace: '', serverUrl: '') {
             sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
         sh 'chmod u+x ./kubectl' 
-        echo "start running my commands here"
+        echo "start running 1st Step"
         sh './kubectl get pods -n ${nameSpace}'
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
         writeFile file: '/var/jenkins_home/workspace/test.txt', text: 'hello this is Sam ALian me'
             }
     }
-
+steps {    
+    withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'k8access', namespace: '', serverUrl: '') {
+            
+        echo "start running 2nd STEP"
+        sh './ sed 's/aem-proxy/jenkins-proxy/g' aem-deploy.yaml > jenkins-proxy.yaml'
+        sh './ sed 's/network/jenkins/g' aem-deploy.yaml > jenkins-proxy.yaml'
+        echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+        writeFile file: '/var/jenkins_home/workspace/finish.txt', text: 'done with 2nd step'
+            }
+    }
   }
   }
 }
