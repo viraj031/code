@@ -15,7 +15,7 @@
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy configs: 'aem-deploy.yaml', kubeConfig: [path: ''], kubeconfigId: 'samkubeconfig', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+          kubernetesDeploy configs: 'aem-deploy.yaml', kubeConfig: [path: ''], kubeconfigId: 'samj', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
         }
       }
     }
