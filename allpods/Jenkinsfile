@@ -19,7 +19,7 @@ pipeline {
         echo "start running my commands here"
         sh './kubectl get pods -n ${nameSpace}'
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-        writeFile file: '/home/sam/test.txt', text: 'hello this is me'
+        writeFile file: '/var/jenkins_home/workspace/test.txt', text: 'hello this is Sam ALian me'
             }
     }
 
