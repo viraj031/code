@@ -27,8 +27,8 @@ steps {
             
         echo "start running 2nd STEP"
         sh './sed 's/aem-proxy/jenkins-proxy/g' aem-deploy.yaml > jenkins-proxy.yaml'
-        sh './sed 's/network/jenkins/g' jenkins-proxy.yaml > jenkins-proxy2.yaml'
-        sh './kubectl create -f jenkins-proxy2.yaml'
+        //sh './sed 's/network/jenkins/g' jenkins-proxy.yaml > jenkins-proxy2.yaml'
+       // sh './kubectl create -f jenkins-proxy2.yaml'
         
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
         writeFile file: '/var/jenkins_home/workspace/finish.txt', text: 'done with 2nd step'
