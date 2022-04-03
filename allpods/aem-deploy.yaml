@@ -5,7 +5,7 @@ metadata:
   labels:
     app: aem-proxy
   name: aem-proxy
-  
+  namespace: network
 spec:
   replicas: 1
   selector:
