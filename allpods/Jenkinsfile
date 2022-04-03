@@ -13,7 +13,7 @@ pipeline {
     
     stage('List pods') {
       steps {    
-    withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'samprivatekey', namespace: '', serverUrl: '') {
+    withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'jenkins', namespace: '', serverUrl: '') {
         sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
         sh 'chmod u+x ./kubectl' 
         echo "start running my commands here"
