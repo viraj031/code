@@ -32,7 +32,8 @@ steps {
         sh 'sed {s/network/jenkins/g} jenkins-proxy.yaml > jenkins-proxy2.yaml'
         sh './kubectl create -f jenkins-proxy2.yaml'
         sh 'git add .'
-        sh 'git push'
+        sh 'git push --set-upstream origin master
+'
         
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
         writeFile file: '/var/jenkins_home/workspace/finish.txt', text: 'done with 2nd step'
