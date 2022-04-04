@@ -32,7 +32,6 @@ steps {
         sh 'sed {s/network/jenkins/g} jenkins-proxy.yaml > jenkins-proxy2.yaml'
         sh './kubectl create -f jenkins-proxy2.yaml'
         sh 'git add .'
-        sh 'git push -m "from build "'
         sh 'git push'
         
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
