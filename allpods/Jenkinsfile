@@ -48,16 +48,11 @@ steps {
     sh 'git add jenkins-proxy2.yaml'
     sh 'git commit -m "jenkins-proxy2.yaml"'        
     sh 'git push --set-upstream origin master'
-     //class Example { 
-     //static void main(String[] args) { 
-      def name = "Usama"
-      println name
-  // } 
-//}
-        
+            
 }
     }
   }
+    
 }
 }
 
