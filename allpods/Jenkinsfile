@@ -38,7 +38,9 @@ steps {
         writeFile file: '/var/jenkins_home/workspace/finish.txt', text: 'done with 2nd step'
             }
     }
-      steps {
+    }
+    stage ('push to github') 
+    steps {
       withCredentials([gitUsernamePassword(credentialsId: 'd75156b1-a612-4ef7-9fb8-2e0ab727127e', gitToolName: 'https://github.com/alian2000/code.git')]) {
     echo "start running 3rd STEP"
 }
