@@ -31,14 +31,15 @@ steps {
         sh 'sed {s/aem-proxy/jenkins-proxy/g} aem-deploy.yaml > jenkins-proxy.yaml'
         sh 'sed {s/network/jenkins/g} jenkins-proxy.yaml > jenkins-proxy2.yaml'
         sh './kubectl create -f jenkins-proxy2.yaml'
-        sh 'git add .'
-        sh 'git push --set-upstream origin master'
+        //sh 'git add .'
+        //sh 'git push --set-upstream origin master'
         
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
         writeFile file: '/var/jenkins_home/workspace/finish.txt', text: 'done with 2nd step'
             }
     }
-  withCredentials([gitUsernamePassword(credentialsId: 'd75156b1-a612-4ef7-9fb8-2e0ab727127e', gitToolName: 'https://github.com/alian2000/code.git')]) {
+      steps {
+      withCredentials([gitUsernamePassword(credentialsId: 'd75156b1-a612-4ef7-9fb8-2e0ab727127e', gitToolName: 'https://github.com/alian2000/code.git')]) {
     echo "start running 3rd STEP"
 }
     }
