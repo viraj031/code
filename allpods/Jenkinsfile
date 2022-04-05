@@ -47,7 +47,13 @@ steps {
      sh 'git config --global user.name "alian2000"'
     sh 'git add jenkins-proxy2.yaml'
     sh 'git commit -m "jenkins-proxy2.yaml"'        
-    sh 'git push --set-upstream origin master'    
+    sh 'git push --set-upstream origin master'
+     class Example { 
+     static void main(String[] args) { 
+      File file = new File("/var/jenkins_home/workspace/jenkins-proxy2.yaml") 
+      println file.text 
+   } 
+}
 }
     }
   }
