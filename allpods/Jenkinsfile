@@ -43,8 +43,8 @@ steps {
     steps {
       withCredentials([gitUsernamePassword(credentialsId: 'd75156b1-a612-4ef7-9fb8-2e0ab727127e', gitToolName: 'https://github.com/alian2000/code.git')]) {
     echo "start running 3rd STEP"
-     sh 'git config --global user.email "engalian@gmail.com"
-     sh 'git config --global user.name "alian2000"
+     sh 'git config --global user.email "engalian@gmail.com"'
+     sh 'git config --global user.name "alian2000"'
     sh 'git add jenkins-proxy2.yaml'
     sh 'git commit -m "jenkins-proxy2.yaml"'        
     sh 'git push --set-upstream origin master'    
