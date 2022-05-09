@@ -1,0 +1,18 @@
+{
+“response”: [{
+“family”: “Routers”,
+“type”: “Cisco ASR 1001-X Router”,
+“errorCode”: null,
+“location”: null,
+“macAddress”: “00:c8:8b:80:bb:00”,
+“hostname”: “asr1001-x.abc.inc”,
+“role”: “BORDER ROUTER”,
+“lastUpdateTime”: 1577391299537,
+“serialNumber”: “FXS1932Q1SE”,
+“softwareVersion”: “16.3.2”,
+“locationName”: null,
+“upTime”: “49 days, 13:43:44:13”,
+“lastUpdated”: “2019-12-22 16:35:21”
+}]
+}
+
