@@ -1,0 +1,66 @@
+or you put comma after the command:
+
+root@master-node:~# for i in $(kubectl get deploy -A | awk '{print $2}')
+> do
+> echo "$i",
+> done
+NAME,
+jenkins,
+coredns,
+dashboard-metrics-scraper,
+kubernetes-dashboard,
+aem-proxy,
+
+=============================
+make sure you move closing bracket ) after the sed arguments
+
+root@master-node:~# for i in $(kubectl get deploy -A | awk '{print $2}'| sed 's/-metrics//g;s/-dashboard//g'); do echo "$i",; done
+NAME,
+jenkins,
+coredns,
+dashboard-scraper,
+kubernetes,
+aem-proxy,
+============================================
+
+ NAME was added to remove it from the column where we have it on the top as a NAME for deployment.
+note NAME all letters uppercase where in GKE it seems we have it as Name (onlt N is uppercase)
+
+root@master-node:~# for i in $(kubectl get deploy -A | awk '{print $2}'| sed 's/-metrics//g;s/-dashboard//g' | uniq | egrep -v 'NAME|aem-proxy|jenkins'); do echo "$i",; done
+NAME,
+coredns,
+dashboard-scraper,
+kubernetes,
+====================================
+more example at 
+https://www.cyberciti.biz/faq/bash-for-loop/
+
+
+===========================================================================
+new era of automation
+for i in `ls | awk '{print $1}'| sed 's/-api-service/-deploy.yaml/g'` ; do echo "$i" ; done
+
+UpdateDeployment sam-proxy jenkins 2
+
+UpdateDeployment() {
+        newname=$1
+        namespace=$2
+        newreplicas=$3
+sed 's/-name: aem-proxy/name: $newname/g;s/namespace: network/namespace: $namespce/g' $i
+sed 's/-replicas: 1/replicas: $newreplicas/g' $i
+
+
+=============================================================================================================================================
+
+
+new era of automation
+for i in `ls | awk '{print $1}'| sed 's/-api-service/-deploy.yaml/g'` ; do echo "$i" ; done
+
+UpdateDeployment sam-proxy jenkins 2
+
+UpdateDeployment() {
+        newname=$1
+        namespace=$2
+        newreplicas=$3
+sed 's/-name: aem-proxy/name: $newname/g;s/namespace: network/namespace: $namespce/g' $i
+sed 's/-replicas: 1/replicas: $newreplicas/g' $i

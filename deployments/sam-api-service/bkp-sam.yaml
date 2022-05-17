@@ -1,22 +1,22 @@
-apiVersion: apps/v1
+apiVersion: apps/v4
 kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: aem-proxy
-  name: desk-api
-  namespace: ftdi.com
+    app: sam-proxy
+  name: sam-proxy
+  namespace: network
 spec:
-  replicas: 999
+  replicas: 1
   selector:
     matchLabels:
-      app: aem-proxy
+      app: sam-proxy
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: aem-proxy
+        app: sam-proxy
     spec:
       containers:
       - image: nginx

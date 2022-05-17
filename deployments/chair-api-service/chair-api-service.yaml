@@ -4,10 +4,10 @@ metadata:
   creationTimestamp: null
   labels:
     app: aem-proxy
-  name: aem-proxy
-  namespace: network
+  name: chair-api
+  namespace: ftdi.com
 spec:
-  replicas: 1
+  replicas: 999
   selector:
     matchLabels:
       app: aem-proxy

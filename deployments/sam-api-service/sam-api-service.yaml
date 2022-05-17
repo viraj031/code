@@ -1,22 +1,22 @@
-apiVersion: apps/v1
+apiVersion: apps/v4
 kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: aem-proxy
-  name: aem-proxy
-  namespace: network
+    app: sam-proxy
+  name: sam-api
+  namespace: ftdi.com
 spec:
-  replicas: 1
+  replicas: 999
   selector:
     matchLabels:
-      app: aem-proxy
+      app: sam-proxy
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: aem-proxy
+        app: sam-proxy
     spec:
       containers:
       - image: nginx

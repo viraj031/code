@@ -1,0 +1,9 @@
+UpdateDeployment() {
+	newname=$1
+	namespace=$2
+	newreplicas=$3
+sed 's/-name: aem-proxy/name: $newname/g;s/namespace: network/namespace: $namespce/g' $i
+sed 's/-replicas: 1/replicas: $newreplicas/g' $i
+	
+
+}
