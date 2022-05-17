@@ -5,7 +5,7 @@ metadata:
   labels:
     app: sam-proxy
   name: sam-api
-  namespace: ftdi.com
+  namespace: dev123
 spec:
   replicas: 999
   selector:
