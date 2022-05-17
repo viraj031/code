@@ -7,7 +7,7 @@ metadata:
   name: desk-api
   namespace: dev123
 spec:
-  replicas: 999
+  replicas: 9
   selector:
     matchLabels:
       app: aem-proxy
