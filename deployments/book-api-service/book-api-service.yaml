@@ -5,9 +5,9 @@ metadata:
   labels:
     app: aem-proxy
   name: book-api
-  namespace: dev123
+  namespace: dev1
 spec:
-  replicas: 9
+  replicas: 0
   selector:
     matchLabels:
       app: aem-proxy

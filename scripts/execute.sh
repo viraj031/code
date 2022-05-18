@@ -12,4 +12,19 @@ sed 's/^  name:.*/  name: '$newname'/g;s/^  namespace:.*/  namespace: '$namespac
 cp new-file.yaml  ${i}
 rm new-file.yaml
 }	
+kubectlfunc() {
+        i=$1
+echo $1
+kubectl apply -f ${i}.yaml
+
+}
+
+
+kubectldel() {
+        i=$1
+echo $1
+kubectl delete -f ${i}.yaml
+
+}
+
 
