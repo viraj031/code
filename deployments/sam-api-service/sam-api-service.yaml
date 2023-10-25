@@ -5,9 +5,9 @@ metadata:
   labels:
     app: sam-proxy
   name: sam-api
-  namespace: dev1
+  namespace: dev3
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: sam-proxy
